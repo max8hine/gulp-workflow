@@ -1,0 +1,90 @@
+// 1. Typography in Vertical-Rhythm 
+$base-font-size: 1rem;
+$base-line-height-ratio: 1.5;
+
+$base-line-height: $base-line-height-ratio * $base-font-size;
+
+$type-settings: (
+  -1: (
+    font-size: 0.75rem,
+    line-height: $base-line-height
+  ),
+  0: (
+    font-size: 1rem,
+    line-height: $base-line-height*1
+  ),
+  1: (
+    font-size: 1.333rem,
+    line-height: $base-line-height*2
+  ),
+  2: (
+    font-size: 1.777rem,
+    line-height: $base-line-height*2
+  ),
+  3: (
+    font-size: 2.369rem,
+    line-height: $base-line-height*2
+  ),
+  9: (
+    font-size: 13.288rem,
+    line-height: $base-line-height*10
+  ),
+);
+
+@function type-scale($level) {
+  @return map-get(
+    map-get($type-settings, $level), 'font-size');
+}
+
+@function line-height($level) {
+  @return map-get(
+    map-get($type-settings, $level), 'line-height');
+}
+
+@mixin type-setting($level) {
+  font-size: type-scale($level);
+  line-height: line-height($level);
+}
+
+.indent {text-indent: 2em;}
+.heading-max {@include type-setting(9);}
+.heading-1 {
+  @include type-setting(3);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin: $base-line-height 0;
+  span {
+    font-weight: 700;
+    color: color(secondary);
+  }
+}
+.heading-2 {
+  @include type-setting(2);
+  margin: $base-line-height 0;
+  span {
+    font-weight: 300;
+  }
+}
+.heading-3 {
+  @include type-setting(1);
+  margin: $base-line-height 0;
+  span {
+    font-weight: 300;
+  }
+}
+.p-1 {
+  @include type-setting(0);
+  margin: 0 0 $base-line-height 0;
+  span {
+    font-weight:700;
+  }
+  &.p-menu {
+    margin: 0 0 $base-line-height*2 0;
+  }
+}
+.p-2 {
+  @include type-setting(-1);
+  margin: 0 0 $base-line-height 0;
+  font-weight: 300;
+}
