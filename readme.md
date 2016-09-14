@@ -1,9 +1,5 @@
-# Max Ma Site
-
-
-** I dont have time to write this :) **
-
-This has a Gulp-powered build system with these features:
+#  A Gulp-Powered build system with these features:
+### It had been modified from Zurb-Foundation for site and been removed Bower support. this is no reason to use npm and bower in one project.
 
 - Handlebars HTML templates with Panini
 - Sass compilation and prefixing
@@ -13,3 +9,10 @@ This has a Gulp-powered build system with these features:
   - CSS compression
   - JavaScript compression
   - Image compression
+
+
+# How to start it
+
+1. npm install
+2. run 'gulp' or 'npm run start'
+3. for the production model, run 'npm run build'
